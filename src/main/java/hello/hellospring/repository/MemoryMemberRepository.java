@@ -1,9 +1,11 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+//@Repository //구현체에 애노테이션 적용
 public class MemoryMemberRepository implements MemberRepository {
 
 //  왜 static으로 구현?
@@ -32,5 +34,9 @@ public class MemoryMemberRepository implements MemberRepository {
   @Override
   public List<Member> findAll() {
     return new ArrayList<>(store.values());
+  }
+
+  public void clearStore() {
+    store.clear();
   }
 }
